@@ -122,4 +122,7 @@
 
     <!-- Smooth Display -->
     <string name="smooth_display">Smooth display</string>
+
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC Dimming</string>
 </resources>

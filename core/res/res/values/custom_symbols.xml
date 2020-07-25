@@ -151,4 +151,8 @@
     <java-symbol type="bool" name="config_dt2sGestureAvailable" />
     <java-symbol type="bool" name="config_dt2sGestureEnabledByDefault" />
 
+    <!-- DC Dimming -->
+    <java-symbol type="string" name="config_deviceDcDimmingSysfsNode" />
+    <java-symbol type="string" name="config_deviceDcDimmingEnableValue" />
+    <java-symbol type="string" name="config_deviceDcDimmingDisableValue" />
 </resources>
