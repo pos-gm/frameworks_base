@@ -18,4 +18,7 @@
     <!-- StatusBar burn-in protection -->
     <dimen name="horizontal_max_shift">3.0dp</dimen>
     <dimen name="vertical_max_shift">2.0dp</dimen>
+
+    <!-- Volume app icon -->  
+    <dimen name="volume_app_icon_max_size">108dp</dimen>
 </resources>
