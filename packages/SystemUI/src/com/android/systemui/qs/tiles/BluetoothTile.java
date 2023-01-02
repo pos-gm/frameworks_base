@@ -90,9 +90,7 @@ public class BluetoothTile extends SecureQSTile<BooleanState> {
 
     @Override
     public BooleanState newTileState() {
-        BooleanState s = new BooleanState();
-        s.forceExpandIcon = true;
-        return s;
+        return new BooleanState();
     }
 
     @Override
