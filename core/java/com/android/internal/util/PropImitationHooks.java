@@ -77,18 +77,22 @@ public class PropImitationHooks {
     private static final Map<String, String> sPixelEightProps = Map.of(
         "PRODUCT", "shiba",
         "DEVICE", "shiba",
+        "HARDWARE", "shiba",
         "MANUFACTURER", "Google",
         "BRAND", "google",
         "MODEL", "Pixel 8",
+        "ID", "UQ1A.240205.004.B1",
         "FINGERPRINT", "google/shiba/shiba:14/UQ1A.240205.004.B1/11318806:user/release-keys"
     );
 
     private static final Map<String, String> sPixelTabletProps = Map.of(
         "PRODUCT", "tangorpro",
         "DEVICE", "tangorpro",
+        "HARDWARE", "tangorpro",
         "MANUFACTURER", "Google",
         "BRAND", "google",
         "MODEL", "Pixel Tablet",
+        "ID", "UQ1A.240205.002",
         "FINGERPRINT", "google/tangorpro/tangorpro:14/UQ1A.240205.002/11224170:user/release-keys"
     );
 
