@@ -74,4 +74,7 @@
 
     <!-- Name of the microphone status bar icon. -->
     <string name="status_bar_microphone">Microphone</string>
+
+    <!-- Smooth Display -->
+    <string name="smooth_display">Smooth display</string>
 </resources>
