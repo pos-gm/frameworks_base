@@ -19,10 +19,11 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
-import com.android.systemui.plugins.qs.QSTile.BooleanState;
+import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.qs.QSHost;
+import com.android.systemui.qs.QsEventLogger;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 
@@ -33,7 +34,7 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
-public class SmoothDisplayTile extends QSTileImpl<BooleanState> implements
+public class SmoothDisplayTile extends QSTileImpl<QSTile.BooleanState> implements
         BatteryController.BatteryStateChangeCallback {
 
     public static final String TILE_SPEC = "smooth_display";
@@ -53,6 +54,7 @@ public class SmoothDisplayTile extends QSTileImpl<BooleanState> implements
     @Inject
     public SmoothDisplayTile(
             QSHost host,
+            QsEventLogger uiEventLogger,
             @Background Looper backgroundLooper,
             @Main Handler mainHandler,
             FalsingManager falsingManager,
@@ -62,7 +64,7 @@ public class SmoothDisplayTile extends QSTileImpl<BooleanState> implements
             QSLogger qsLogger,
             BatteryController batteryController
     ) {
-        super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger, statusBarStateController,
+        super(host, uiEventLogger, backgroundLooper, mainHandler, falsingManager, metricsLogger, statusBarStateController,
                 activityStarter, qsLogger);
         mHighRefreshRates = getHighRefreshRates();
         mMaxRefreshRate = Collections.max(mHighRefreshRates);
