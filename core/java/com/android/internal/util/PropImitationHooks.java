@@ -74,15 +74,15 @@ public class PropImitationHooks {
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
             "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
-    private static final Map<String, String> sPixelEightProps = Map.of(
-        "PRODUCT", "shiba",
-        "DEVICE", "shiba",
-        "HARDWARE", "shiba",
+    private static final Map<String, String> sPixelEightProProps = Map.of(
+        "PRODUCT", "husky",
+        "DEVICE", "husky",
+        "HARDWARE", "husky",
         "MANUFACTURER", "Google",
         "BRAND", "google",
-        "MODEL", "Pixel 8",
-        "ID", "UQ1A.240205.004.B1",
-        "FINGERPRINT", "google/shiba/shiba:14/UQ1A.240205.004.B1/11318806:user/release-keys"
+        "MODEL", "Pixel 8 Pro",
+        "ID", "UQ1A.240205.004",
+        "FINGERPRINT", "google/husky/husky:14/UQ1A.240205.004/11269751:user/release-keys"
     );
 
     private static final Map<String, String> sPixelTabletProps = Map.of(
@@ -158,7 +158,7 @@ public class PropImitationHooks {
                 sPixelTabletProps.forEach(PropImitationHooks::setPropValue);
             } else {
                 dlog("Spoofing Pixel 8 Pro for: " + packageName + " process: " + processName);
-                sPixelEightProps.forEach(PropImitationHooks::setPropValue);
+                sPixelEightProProps.forEach(PropImitationHooks::setPropValue);
             }
         } else if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
             dlog("Setting model to " + sNetflixModel + " for Netflix");
