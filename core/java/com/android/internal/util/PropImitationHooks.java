@@ -95,6 +95,17 @@ public class PropImitationHooks {
         "FINGERPRINT", "google/husky/husky:14/UQ1A.240205.004/11269751:user/release-keys"
     );
 
+    private static final Map<String, String> sPixelFiveProps = Map.of(
+        "PRODUCT", "barbet",
+        "DEVICE", "barbet",
+        "HARDWARE", "barbet",
+        "MANUFACTURER", "Google",
+        "BRAND", "google",
+        "MODEL", "Pixel 5a",
+        "ID", "UQ1A.240205.002",
+        "FINGERPRINT", "google/barbet/barbet:14/UQ1A.240205.002/11224170:user/release-keys"
+    );
+
     private static final Map<String, String> sPixelTabletProps = Map.of(
         "PRODUCT", "tangorpro",
         "DEVICE", "tangorpro",
@@ -111,7 +122,7 @@ public class PropImitationHooks {
     private static volatile boolean sSpoofGapps;
 
     private static volatile String sProcessName;
-    private static volatile boolean sIsGms, sIsFinsky, sIsTablet;
+    private static volatile boolean sIsGms, sIsFinsky, sIsPhotos, sIsTablet;
 
     public static void setProps(Context context) {
         final String packageName = context.getPackageName();
@@ -137,6 +148,7 @@ public class PropImitationHooks {
         sProcessName = processName;
         sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
         sIsFinsky = packageName.equals(PACKAGE_FINSKY);
+        sIsPhotos = sSpoofGapps && packageName.equals(PACKAGE_GPHOTOS);
 
         /* Set certified properties for GMSCore
          * Set stock fingerprint for ARCore
@@ -155,7 +167,6 @@ public class PropImitationHooks {
                 || packageName.equals(PACKAGE_ASI)
 		|| packageName.equals(PACKAGE_CHROME)
 		|| packageName.equals(PACKAGE_GBOARD)
-		|| packageName.equals(PACKAGE_GPHOTOS)
                 || packageName.equals(PACKAGE_AIWALLPAPERS)
 		|| packageName.equals(PACKAGE_ASSISTANT)
 		|| packageName.equals(PACKAGE_EMOJIWALLPAPER)
@@ -179,6 +190,9 @@ public class PropImitationHooks {
                 dlog("Spoofing Pixel 8 Pro for: " + packageName + " process: " + processName);
                 sPixelEightProProps.forEach(PropImitationHooks::setPropValue);
             }
+        } else if (sIsPhotos) {
+            dlog("Spoofing Pixel 5a for Google Photos");
+            sPixelFiveProps.forEach((PropImitationHooks::setPropValue));
         } else if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
             dlog("Setting model to " + sNetflixModel + " for Netflix");
             setPropValue("MODEL", sNetflixModel);
