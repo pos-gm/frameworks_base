@@ -43,10 +43,14 @@ public class PropImitationHooks {
     private static final String TAG = "PropImitationHooks";
     private static final boolean DEBUG = SystemProperties.getBoolean("debug.pihooks.log", false);
 
+    private static final String PACKAGE_AICORE = "com.google.android.aicore";
     private static final String PACKAGE_AIWALLPAPERS = "com.google.android.apps.aiwallpapers";
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_ASSISTANT = "com.google.android.apps.googleassistant";
     private static final String PACKAGE_ASI = "com.google.android.as";
+
+    private static final String PACKAGE_BARD = "com.google.android.apps.bard";
+    private static final String PACKAGE_CHROME = "com.android.chrome";
     private static final String PACKAGE_EMOJIWALLPAPER = "com.google.android.apps.emojiwallpaper";
 
     private static final String PACKAGE_FINSKY = "com.android.vending";
@@ -60,6 +64,7 @@ public class PropImitationHooks {
 
     private static final String PACKAGE_WALLPAPER = "com.google.android.apps.wallpaper";
     private static final String PACKAGE_WALLPAPEREFFECTS = "com.google.android.wallpaper.effects";
+    private static final String PACKAGE_WEATHER = "com.google.android.apps.weather";
 
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
@@ -143,8 +148,11 @@ public class PropImitationHooks {
             dlog("Setting stock fingerprint for: " + packageName);
             setPropValue("FINGERPRINT", sStockFp);
         } else if (sSpoofGapps && (packageName.equals(PACKAGE_VELVET)
+		|| packageName.equals(PACKAGE_AICORE)
 		|| packageName.equals(PACKAGE_TURBO)
                 || packageName.equals(PACKAGE_ASI)
+		|| packageName.equals(PACKAGE_BARD)
+		|| packageName.equals(PACKAGE_CHROME)
 		|| packageName.equals(PACKAGE_GBOARD)
 		|| packageName.equals(PACKAGE_GPHOTOS)
                 || packageName.equals(PACKAGE_AIWALLPAPERS)
@@ -155,6 +163,7 @@ public class PropImitationHooks {
 		|| packageName.equals(PACKAGE_PIXELWALLPAPER)
 		|| packageName.equals(PACKAGE_WALLPAPER)
 		|| packageName.equals(PACKAGE_WALLPAPEREFFECTS)
+		|| packageName.equals(PACKAGE_WEATHER)
                 || (packageName.equals(PACKAGE_GMS)
 		&& processName.equals(PROCESS_GMS_PERSISTENT)))) {
             if (sIsTablet) {
