@@ -17,15 +17,16 @@
 package com.android.systemui.custom
 
 import com.android.systemui.qs.tileimpl.QSTileImpl
+
+import com.android.systemui.qs.tiles.AODTile
 import com.android.systemui.qs.tiles.AutoBrightnessTile
 import com.android.systemui.qs.tiles.CaffeineTile
 import com.android.systemui.qs.tiles.CellularTile
 import com.android.systemui.qs.tiles.DataSwitchTile
-import com.android.systemui.qs.tiles.WifiTile
 import com.android.systemui.qs.tiles.HeadsUpTile
-import com.android.systemui.qs.tiles.AODTile
-import com.android.systemui.qs.tiles.UsbTetherTile
 import com.android.systemui.qs.tiles.PowerShareTile
+import com.android.systemui.qs.tiles.UsbTetherTile
+import com.android.systemui.qs.tiles.WifiTile
 
 import dagger.Binds
 import dagger.Module
@@ -34,6 +35,19 @@ import dagger.multibindings.StringKey
 
 @Module
 interface CustomModule {
+    /** Inject AODTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(AODTile.TILE_SPEC)
+    fun bindAODTile(aodTile: AODTile): QSTileImpl<*>
+
+
+    /** Inject AutoBrightnessTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(AutoBrightnessTile.TILE_SPEC)
+    fun bindAutoBrightnessTile(autobrightnessTile: AutoBrightnessTile): QSTileImpl<*>
+
     /** Inject CaffeineTile into tileMap in QSModule */
     @Binds
     @IntoMap
@@ -52,29 +66,11 @@ interface CustomModule {
     @StringKey(DataSwitchTile.TILE_SPEC)
     fun bindDataSwitchTile(dataSwitchTileTile: DataSwitchTile): QSTileImpl<*>
 
-    /** Inject WifiTile into tileMap in QSModule */
-    @Binds
-    @IntoMap
-    @StringKey(WifiTile.TILE_SPEC)
-    fun bindWifiTile(wifiTile: WifiTile): QSTileImpl<*>
-
     /** Inject HeadsUpTile into tileMap in QSModule */
     @Binds
     @IntoMap
     @StringKey(HeadsUpTile.TILE_SPEC)
     fun bindHeadsUpTile(headsUpTile: HeadsUpTile): QSTileImpl<*>
-
-    /** Inject AODTile into tileMap in QSModule */
-    @Binds
-    @IntoMap
-    @StringKey(AODTile.TILE_SPEC)
-    fun bindAODTile(aodTile: AODTile): QSTileImpl<*>
-
-    /** Inject UsbTetherTile into tileMap in QSModule */
-    @Binds
-    @IntoMap
-    @StringKey(UsbTetherTile.TILE_SPEC)
-    fun bindUsbTetherTile(usbTetherTile: UsbTetherTile): QSTileImpl<*>
 
     /** Inject PowerShareTile into tileMap in QSModule */
     @Binds
@@ -82,9 +78,15 @@ interface CustomModule {
     @StringKey(PowerShareTile.TILE_SPEC)
     fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
 
-    /** Inject AutoBrightnessTile into tileMap in QSModule */
+    /** Inject UsbTetherTile into tileMap in QSModule */
     @Binds
     @IntoMap
-    @StringKey(AutoBrightnessTile.TILE_SPEC)
-    fun bindAutoBrightnessTile(autobrightnessTile: AutoBrightnessTile): QSTileImpl<*>
+    @StringKey(UsbTetherTile.TILE_SPEC)
+    fun bindUsbTetherTile(usbTetherTile: UsbTetherTile): QSTileImpl<*>
+
+    /** Inject WifiTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(WifiTile.TILE_SPEC)
+    fun bindWifiTile(wifiTile: WifiTile): QSTileImpl<*>
 }
