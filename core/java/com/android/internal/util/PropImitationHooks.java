@@ -103,6 +103,8 @@ public class PropImitationHooks {
         "PIXEL_2019_PRELOAD",
         "PIXEL_2020_EXPERIENCE",
         "PIXEL_2020_MIDYEAR_EXPERIENCE",
+        "PIXEL_2021_EXPERIENCE",
+        "PIXEL_2021_MIDYEAR_EXPERIENCE",
         "PIXEL_EXPERIENCE"
     );
 
