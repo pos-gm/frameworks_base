@@ -57,6 +57,7 @@ public class PropImitationHooks {
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_ASI = "com.google.android.as";
     private static final String PACKAGE_ASSISTANT = "com.google.android.apps.googleassistant";
+    private static final String PACKAGE_BARD = "com.google.android.apps.bard";
     private static final String PACKAGE_EMOJIWALLPAPER = "com.google.android.apps.emojiwallpaper";
 
     private static final String PACKAGE_FINSKY = "com.android.vending";
@@ -72,6 +73,7 @@ public class PropImitationHooks {
     private static final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
     private static final String PACKAGE_WALLPAPER = "com.google.android.apps.wallpaper";
     private static final String PACKAGE_WALLPAPEREFFECTS = "com.google.android.wallpaper.effects";
+    private static final String PACKAGE_WEATHER = "com.google.android.apps.weather";
 
     private static final String PROCESS_GMS_GAPPS = PACKAGE_GMS + ".gapps";
     private static final String PROCESS_GMS_GSERVICE = PACKAGE_GMS + ".gservice";
@@ -227,6 +229,7 @@ public class PropImitationHooks {
             case PACKAGE_AIWALLPAPERS:
             case PACKAGE_ASSISTANT:
             case PACKAGE_ASI:
+            case PACKAGE_BARD:
             case PACKAGE_EMOJIWALLPAPER:
             case PACKAGE_GMS:
             case PACKAGE_LIVEWALLPAPER:
@@ -237,6 +240,7 @@ public class PropImitationHooks {
             case PACKAGE_VELVET:
             case PACKAGE_WALLPAPER:
             case PACKAGE_WALLPAPEREFFECTS:
+            case PACKAGE_WEATHER:
                 if (sIsTablet) {
                     dlog("Spoofing Pixel Tablet for: " + packageName + " process: " + processName);
                     setProps(sPixelTabletProps);
